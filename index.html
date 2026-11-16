@@ -168,6 +168,21 @@
   .plain li{padding:7px 0;color:var(--muted)}
   .plain li b{color:var(--text);font-weight:500}
 
+  /* CERTS */
+  .certgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .cert{display:flex;gap:16px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;transition:border-color .25s,transform .25s}
+  .cert:hover{border-color:rgba(var(--accent-rgb),.5);transform:translateY(-3px)}
+  .cimg{position:relative;flex:none;width:76px;height:76px;border-radius:10px;background:#131d29;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.06em;overflow:hidden;text-align:center}
+  .cimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;padding:4px}
+  .cert b{display:block;font-size:15.5px;line-height:1.3}
+  .cert small{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+  .cert .vf{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:11.5px;padding:3px 10px;border:1px solid rgba(var(--accent-rgb),.4);border-radius:999px}
+  .cert .vf:hover{background:rgba(var(--accent-rgb),.12)}
+  .chip{flex:none;width:46px;height:46px;border-radius:10px;background:#131d29;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.04em}
+  .jhead{display:flex;gap:14px;align-items:center;margin-bottom:10px}
+  .jhead .ctx{margin-bottom:0}
+  .edu-l{display:flex;gap:14px;align-items:center}
+
   /* GAME */
   .game{background:rgba(10,15,22,.94);border:1px solid var(--line);border-radius:14px;overflow:hidden;max-width:820px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
   .g-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 20px;border-bottom:1px solid var(--line);background:#0b1119;font-family:var(--mono);font-size:12px;color:var(--muted)}
@@ -212,7 +227,7 @@
   @media (max-width:900px){
     header{grid-template-columns:1fr;min-height:0;padding:56px 0 64px;gap:40px}
     .scrollcue{display:none}
-    .grid{grid-template-columns:1fr 1fr}
+    .grid,.certgrid{grid-template-columns:1fr 1fr}
     .stats{grid-template-columns:1fr 1fr}
     .pipe{grid-template-columns:1fr;gap:22px}
     .step:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-23px;transform:translateX(-50%)}
@@ -220,7 +235,7 @@
     .lang{margin-left:auto}
   }
   @media (max-width:640px){
-    .grid,.skills,.two{grid-template-columns:1fr}
+    .grid,.certgrid,.skills,.two{grid-template-columns:1fr}
     .two{gap:56px}
     section{padding:64px 0}
     .edu-row{flex-direction:column;gap:2px}
@@ -289,7 +304,7 @@
     <div class="stats">
       <div class="stat rv"><b data-count="2">2</b><span data-i18n="s1">stages en cybersécurité, dont un mini-SOC déployé from scratch</span></div>
       <div class="stat rv"><b data-count="2" data-suf="×">2</b><span data-i18n="s2">1<sup>re</sup> place en hackathon / challenge en 2026</span></div>
-      <div class="stat rv"><b data-count="6">6</b><span data-i18n="s3">certifications et badges (Cisco NetAcad, AWS Academy, Hedera…)</span></div>
+      <div class="stat rv"><b data-count="7">7</b><span data-i18n="s3">certifications et badges (Cisco NetAcad, AWS Academy, Hedera…)</span></div>
       <div class="stat rv"><b data-count="3">3</b><span data-i18n="s4">langues : français, anglais, arabe</span></div>
     </div>
   </section>
@@ -300,9 +315,11 @@
     <div class="timeline" id="timeline">
       <div class="fill"></div>
       <div class="job rv">
+        <div class="jhead"><span class="chip" aria-hidden="true">BH</span><div>
         <div class="meta" data-i18n="j1m">juin – août 2026 · Tunis</div>
         <h3 data-i18n="j1t">Stagiaire Cybersécurité <em>— BH Assurance</em></h3>
         <div class="ctx" data-i18n="j1c">Compagnie d'assurance cotée (groupe BH Bank)</div>
+        </div></div>
         <ul>
           <li data-i18n="j1a">Conception d'une architecture de collecte de logs Windows et d'IOC adaptée à un réseau segmenté.</li>
           <li data-i18n="j1b">Analyse des flux de journalisation pour améliorer la visibilité du SI et la détection.</li>
@@ -310,9 +327,11 @@
         <div class="tags"><span class="tag">Logs Windows</span><span class="tag">Sysmon</span><span class="tag">IOC</span><span class="tag">Segmentation</span></div>
       </div>
       <div class="job rv">
+        <div class="jhead"><span class="chip" aria-hidden="true">TGRS</span><div>
         <div class="meta" data-i18n="j2m">juin – août 2025 · Tunisie</div>
         <h3 data-i18n="j2t">Stagiaire Cybersécurité <em>— TGRS</em></h3>
         <div class="ctx" data-i18n="j2c">Bureau d'études géotechniques (BTP)</div>
+        </div></div>
         <ul>
           <li data-i18n="j2a">Déploiement d'un mini-SOC de supervision des endpoints.</li>
           <li data-i18n="j2b">Collecte d'événements de sécurité, rédaction de règles de détection, suivi des alertes.</li>
@@ -320,9 +339,11 @@
         <div class="tags"><span class="tag">Wazuh</span><span class="tag">EDR</span><span class="tag">Règles de détection</span><span class="tag">Triage</span></div>
       </div>
       <div class="job rv">
+        <div class="jhead"><span class="chip" aria-hidden="true">AS</span><div>
         <div class="meta" data-i18n="j3m">juil. – août 2023 · Tunis</div>
         <h3 data-i18n="j3t">Stagiaire Développement mobile <em>— AlterSIS Performance</em></h3>
         <div class="ctx" data-i18n="j3c">Agence du groupe français ALTERSIS (tests de performance applicative)</div>
+        </div></div>
         <ul><li data-i18n="j3a">Développement et tests d'applications mobiles.</li></ul>
       </div>
     </div>
@@ -403,11 +424,12 @@
       <div class="rv">
         <h2 data-n="04" data-i18n="h4">Formation</h2>
         <div style="height:18px"></div>
-        <div class="edu-row"><div><b data-i18n="e1">Diplôme d'ingénieur — Cybersécurité</b><span data-i18n="e1s">3iL Ingénieurs, Limoges · double diplôme</span></div><div class="yr">2026 – 2028</div></div>
-        <div class="edu-row"><div><b data-i18n="e2">Cycle ingénieur — Cybersécurité</b><span data-i18n="e2s">ESPRIT, Tunis · double diplôme</span></div><div class="yr">2022 – 2027</div></div>
-        <div class="edu-row"><div><b data-i18n="e3">Baccalauréat</b><span>Lycée Khair Eddine, Ariana</span></div><div class="yr">2022</div></div>
-        <div style="height:40px"></div>
-        <h2 data-n="06" data-i18n="h6">Langues &amp; engagement</h2>
+        <div class="edu-row"><div class="edu-l"><span class="chip" aria-hidden="true">3iL</span><div><b data-i18n="e1">Diplôme d'ingénieur — Cybersécurité</b><span data-i18n="e1s">3iL Ingénieurs, Limoges · double diplôme</span></div></div><div class="yr">2026 – 2028</div></div>
+        <div class="edu-row"><div class="edu-l"><span class="chip" aria-hidden="true">ESP</span><div><b data-i18n="e2">Cycle ingénieur — Cybersécurité</b><span data-i18n="e2s">ESPRIT, Tunis · double diplôme</span></div></div><div class="yr">2022 – 2027</div></div>
+        <div class="edu-row"><div class="edu-l"><span class="chip" aria-hidden="true">BAC</span><div><b data-i18n="e3">Baccalauréat</b><span>Lycée Khair Eddine, Ariana</span></div></div><div class="yr">2022</div></div>
+      </div>
+      <div class="rv">
+        <h2 data-n="05" data-i18n="h6">Langues &amp; engagement</h2>
         <div style="height:10px"></div>
         <ul class="plain">
           <li data-i18n="l1"><b>Français</b> courant · <b>Anglais</b> courant · <b>Arabe</b> langue maternelle</li>
@@ -416,18 +438,30 @@
           <li data-i18n="l4"><b>Organisateur</b> — TEDx et « Sustainable Minds » (2023)</li>
         </ul>
       </div>
-      <div class="rv">
-        <h2 data-n="05">Certifications &amp; badges</h2>
-        <div style="height:10px"></div>
-        <ul class="certs">
-          <li><div data-i18n="ce1">CyberOps Associate <small>— Cisco NetAcad, badge vérifié, 2026</small></div></li>
-          <li><div data-i18n="ce2">Network Security <small>— Cisco NetAcad, badge vérifié, 2026</small></div></li>
-          <li><div data-i18n="ce3">Cloud Security Foundations <small>— AWS Academy Graduate, badge vérifié, 2026</small></div></li>
-          <li><div data-i18n="ce4">CCNA (modules) : Intro aux réseaux ; Commutation, routage &amp; sans-fil <small>— Cisco NetAcad</small></div></li>
-          <li><div>HCDA &amp; HCF <small>— The Hashgraph Association, 2026</small></div></li>
-          <li><div data-i18n="ce6">Ethical Hacking <small>— pentest web, vulnérabilités, fuzzing</small></div></li>
-        </ul>
-      </div>
+    </div>
+  </section>
+
+  <section id="certifs">
+    <h2 class="rv" data-n="06">Certifications &amp; badges</h2>
+    <div class="h2big rv" data-i18n="b6">Vérifiables en un clic.</div>
+    <div class="certgrid">
+      <div class="cert rv"><div class="cimg">AWS<img src="https://images.credly.com/images/7f7ea828-a10d-44f8-8baa-58a9c1af7671/linkedin_thumb_blob" alt="Badge AWS Academy Graduate – Cloud Security Foundations" loading="lazy" onerror="this.remove()"></div><div>
+        <b>Cloud Security Foundations</b><small data-i18n="m3">AWS Academy Graduate · badge vérifié · nov. 2026</small>
+        <a class="vf" href="https://www.credly.com/badges/2deb018c-604b-4a25-a9f0-f3d347b330d4/public_url" target="_blank" rel="noopener" data-i18n="vf">Vérifier ↗</a></div></div>
+      <div class="cert rv"><div class="cimg">CISCO</div><div>
+        <b>CyberOps Associate</b><small data-i18n="m1">Cisco NetAcad · badge vérifié · juil. 2026</small></div></div>
+      <div class="cert rv"><div class="cimg">CISCO</div><div>
+        <b>Network Security</b><small data-i18n="m2">Cisco NetAcad · badge vérifié · oct. 2026</small></div></div>
+      <div class="cert rv"><div class="cimg">HEDERA</div><div>
+        <b>Hedera Certified Developer Associate (HCDA)</b><small data-i18n="m5">The Hashgraph Association · oct. 2026</small>
+        <a class="vf" href="https://certs.hashgraphdev.com/e12a5281-9f9b-466c-ab0e-364ef382cfc1.pdf" target="_blank" rel="noopener" data-i18n="vf">Vérifier ↗</a></div></div>
+      <div class="cert rv"><div class="cimg">HEDERA</div><div>
+        <b>Hedera Certified Foundation (HCF)</b><small data-i18n="m5">The Hashgraph Association · oct. 2026</small>
+        <a class="vf" href="https://certs.hashgraphdev.com/ad9592f2-6b6e-4eab-9035-72c979d6405a.pdf" target="_blank" rel="noopener" data-i18n="vf">Vérifier ↗</a></div></div>
+      <div class="cert rv"><div class="cimg">CISCO</div><div>
+        <b data-i18n="m4t">CCNA (modules)</b><small data-i18n="m4">Intro aux réseaux ; Commutation, routage &amp; sans-fil · Cisco NetAcad</small></div></div>
+      <div class="cert rv"><div class="cimg">EH</div><div>
+        <b>Ethical Hacking</b><small data-i18n="m6">Pentest web, recherche de vulnérabilités, fuzzing</small></div></div>
     </div>
   </section>
 
@@ -502,6 +536,11 @@
     ce3:"Cloud Security Foundations <small>— AWS Academy Graduate, verified badge, 2026</small>",
     ce4:"CCNA (modules): Introduction to Networks; Switching, Routing &amp; Wireless <small>— Cisco NetAcad</small>",
     ce6:"Ethical Hacking <small>— web pentest, vulnerability research, fuzzing</small>",
+    b6:"Verifiable in one click.", vf:"Verify ↗",
+    m1:"Cisco NetAcad · verified badge · Jul 2026", m2:"Cisco NetAcad · verified badge · Oct 2026",
+    m3:"AWS Academy Graduate · verified badge · Nov 2026",
+    m4t:"CCNA (modules)", m4:"Introduction to Networks; Switching, Routing &amp; Wireless · Cisco NetAcad",
+    m5:"The Hashgraph Association · Oct 2026", m6:"Web pentest, vulnerability research, fuzzing",
     h7:"Challenge", b7:"One minute in my seat: your turn to triage the alerts.",
     ct:"Looking for a SOC intern for April 2027?",
     cp:"I'm looking for a 4-month engineering internship in SOC / detection and incident response. Limoges, Toulouse or Paris.",
