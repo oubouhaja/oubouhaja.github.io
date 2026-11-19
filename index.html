@@ -234,6 +234,25 @@
     nav ul{display:none}
     .lang{margin-left:auto}
   }
+  .chip.logo{background:#fff;padding:3px;overflow:hidden}
+  .chip.logo img{width:100%;height:100%;object-fit:contain;border-radius:7px;display:block}
+  .card.wide{grid-column:1/-1}
+  .shots{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:16px;position:relative;z-index:1}
+  .card.wide .shots{grid-template-columns:repeat(6,1fr)}
+  .shot{display:block;padding:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#0a1018;cursor:zoom-in;aspect-ratio:16/10;transition:border-color .2s,transform .2s}
+  .shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+  .shot:hover,.shot:focus-visible{border-color:var(--accent);outline:none}
+  .shot:hover img{transform:scale(1.06)}
+  .lb{position:fixed;inset:0;z-index:200;background:rgba(4,7,11,.92);display:none;align-items:center;justify-content:center;flex-direction:column;padding:56px 64px 24px;backdrop-filter:blur(4px)}
+  .lb.on{display:flex}
+  .lb img{max-width:100%;max-height:calc(100vh - 140px);border-radius:10px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  .lb figcaption{margin-top:14px;font-family:var(--mono);font-size:13px;color:var(--muted);text-align:center}
+  .lb figcaption b{color:var(--accent);font-weight:400;margin-right:8px}
+  .lb button{position:absolute;background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:999px;width:44px;height:44px;font-size:20px;cursor:pointer;font-family:var(--mono)}
+  .lb button:hover{border-color:var(--accent);color:var(--accent)}
+  .lb .lb-x{top:14px;right:14px}.lb .lb-p{left:12px;top:50%}.lb .lb-n{right:12px;top:50%}
+  @media (max-width:900px){.card.wide .shots{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:640px){.lb{padding:56px 10px 20px}.lb .lb-p,.lb .lb-n{top:auto;bottom:14px}}
   @media (max-width:640px){
     .grid,.certgrid,.skills,.two{grid-template-columns:1fr}
     .two{gap:56px}
@@ -315,7 +334,7 @@
     <div class="timeline" id="timeline">
       <div class="fill"></div>
       <div class="job rv">
-        <div class="jhead"><span class="chip" aria-hidden="true">BH</span><div>
+        <div class="jhead"><span class="chip logo"><img src="assets/logos/bh-assurance.webp" alt="Logo BH Assurance" width="46" height="46" loading="lazy"></span><div>
         <div class="meta" data-i18n="j1m">juin – août 2026 · Tunis</div>
         <h3 data-i18n="j1t">Stagiaire Cybersécurité <em>— BH Assurance</em></h3>
         <div class="ctx" data-i18n="j1c">Compagnie d'assurance cotée (groupe BH Bank)</div>
@@ -339,7 +358,7 @@
         <div class="tags"><span class="tag">Wazuh</span><span class="tag">EDR</span><span class="tag">Règles de détection</span><span class="tag">Triage</span></div>
       </div>
       <div class="job rv">
-        <div class="jhead"><span class="chip" aria-hidden="true">AS</span><div>
+        <div class="jhead"><span class="chip logo"><img src="assets/logos/altersis.webp" alt="Logo ALTERSIS" width="46" height="46" loading="lazy"></span><div>
         <div class="meta" data-i18n="j3m">juil. – août 2023 · Tunis</div>
         <h3 data-i18n="j3t">Stagiaire Développement mobile <em>— AlterSIS Performance</em></h3>
         <div class="ctx" data-i18n="j3c">Agence du groupe français ALTERSIS (tests de performance applicative)</div>
@@ -353,6 +372,13 @@
     <h2 class="rv" data-n="02" data-i18n="h2">Projets &amp; distinctions</h2>
     <div class="h2big rv" data-i18n="b2">Détection, réponse automatisée et IA appliquée à la sécurité.</div>
     <div class="grid">
+      <div class="card win wide rv"><i class="scan"></i>
+        <span class="badge" data-i18n="p7b">🏅 Top 6 NIDS · Bal des Projets ESPRIT 2026</span>
+        <h3>INDRA-W.I.N</h3>
+        <p data-i18n="p7">Écosystème SOC &amp; Threat Intelligence nouvelle génération : défense active et autonome qui réagit aux attaques au lieu de se contenter de les journaliser. J'ai conçu l'infrastructure Zero Trust (micro-segmentation, triple pare-feu OPNsense / pfSense isolant WAN, DMZ et SOC) et intégré la pile SIEM / SOAR / CTI.</p>
+        <div class="tags"><span class="tag">Wazuh</span><span class="tag">Shuffle</span><span class="tag">TheHive</span><span class="tag">Cortex</span><span class="tag">MISP</span><span class="tag">OPNsense</span><span class="tag">pfSense</span><span class="tag">XGBoost</span><span class="tag">Gemma LLM</span></div>
+        <div class="shots" data-gal="indra"><button type="button" class="shot" aria-label="Agrandir : Authentification biométrique à l'entrée de la plateforme"><img src="assets/projets/indra-1.webp" alt="Authentification biométrique à l'entrée de la plateforme" data-en="Biometric authentication at the platform entrance" loading="lazy" decoding="async"></button><button type="button" class="shot" aria-label="Agrandir : Cartographie du réseau et détection ML"><img src="assets/projets/indra-2.webp" alt="Cartographie du réseau et détection ML" data-en="Network map and ML detection" loading="lazy" decoding="async"></button><button type="button" class="shot" aria-label="Agrandir : Global Threat Forecaster : prévision de la menace à 7 jours"><img src="assets/projets/indra-3.webp" alt="Global Threat Forecaster : prévision de la menace à 7 jours" data-en="Global Threat Forecaster: 7-day threat forecast" loading="lazy" decoding="async"></button><button type="button" class="shot" aria-label="Agrandir : Alerte d'intrusion physique avec résumé IA et classification"><img src="assets/projets/indra-4.webp" alt="Alerte d'intrusion physique avec résumé IA et classification" data-en="Physical intrusion alert with AI summary and classification" loading="lazy" decoding="async"></button><button type="button" class="shot" aria-label="Agrandir : Pipeline de traitement des incidents"><img src="assets/projets/indra-5.webp" alt="Pipeline de traitement des incidents" data-en="Incident handling pipeline" loading="lazy" decoding="async"></button><button type="button" class="shot" aria-label="Agrandir : Fiche du projet au Bal des Projets ESPRIT"><img src="assets/projets/indra-6.webp" alt="Fiche du projet au Bal des Projets ESPRIT" data-en="Project page at ESPRIT's Bal des Projets" loading="lazy" decoding="async"></button></div>
+      </div>
       <div class="card win rv"><i class="scan"></i>
         <span class="badge" data-i18n="p1b">🏆 1re place · Hackathon Cyber AI 2026</span>
         <h3>Godzilla CTI</h3>
@@ -362,6 +388,7 @@
         <span class="badge" data-i18n="p2b">🏆 1re place · ESPRIT Smart Campus 2026</span>
         <h3>ESPRIT Neural Campus</h3>
         <p data-i18n="p2">Solution IA pour le campus, avec contrôle d'accès biométrique.</p>
+        <div class="shots" data-gal="neural-campus"><button type="button" class="shot" aria-label="Agrandir : Vue 3D du campus et de ses zones IoT"><img src="assets/projets/neural-campus-1.webp" alt="Vue 3D du campus et de ses zones IoT" data-en="3D view of the campus and its IoT zones" loading="lazy" decoding="async"></button><button type="button" class="shot" aria-label="Agrandir : Dashboard temps réel ESPRIT Neural Campus"><img src="assets/projets/neural-campus-2.webp" alt="Dashboard temps réel ESPRIT Neural Campus" data-en="ESPRIT Neural Campus real-time dashboard" loading="lazy" decoding="async"></button><button type="button" class="shot" aria-label="Agrandir : Analyse du trafic réseau et prévision LSTM"><img src="assets/projets/neural-campus-3.webp" alt="Analyse du trafic réseau et prévision LSTM" data-en="Network traffic analysis and LSTM forecast" loading="lazy" decoding="async"></button><button type="button" class="shot" aria-label="Agrandir : Accès au centre de contrôle par empreinte digitale"><img src="assets/projets/neural-campus-4.webp" alt="Accès au centre de contrôle par empreinte digitale" data-en="Fingerprint access to the control centre" loading="lazy" decoding="async"></button></div>
       </div>
       <div class="card rv"><i class="scan"></i>
         <div class="id">PRJ-003 · detection</div>
@@ -424,8 +451,8 @@
       <div class="rv">
         <h2 data-n="04" data-i18n="h4">Formation</h2>
         <div style="height:18px"></div>
-        <div class="edu-row"><div class="edu-l"><span class="chip" aria-hidden="true">3iL</span><div><b data-i18n="e1">Diplôme d'ingénieur — Cybersécurité</b><span data-i18n="e1s">3iL Ingénieurs, Limoges · double diplôme</span></div></div><div class="yr">2026 – 2028</div></div>
-        <div class="edu-row"><div class="edu-l"><span class="chip" aria-hidden="true">ESP</span><div><b data-i18n="e2">Cycle ingénieur — Cybersécurité</b><span data-i18n="e2s">ESPRIT, Tunis · double diplôme</span></div></div><div class="yr">2022 – 2027</div></div>
+        <div class="edu-row"><div class="edu-l"><span class="chip logo"><img src="assets/logos/3il.webp" alt="Logo 3iL Ingénieurs" width="46" height="46" loading="lazy"></span><div><b data-i18n="e1">Diplôme d'ingénieur — Cybersécurité</b><span data-i18n="e1s">3iL Ingénieurs, Limoges · double diplôme</span></div></div><div class="yr">2026 – 2028</div></div>
+        <div class="edu-row"><div class="edu-l"><span class="chip logo"><img src="assets/logos/esprit.webp" alt="Logo ESPRIT" width="46" height="46" loading="lazy"></span><div><b data-i18n="e2">Cycle ingénieur — Cybersécurité</b><span data-i18n="e2s">ESPRIT, Tunis · double diplôme</span></div></div><div class="yr">2022 – 2027</div></div>
         <div class="edu-row"><div class="edu-l"><span class="chip" aria-hidden="true">BAC</span><div><b data-i18n="e3">Baccalauréat</b><span>Lycée Khair Eddine, Ariana</span></div></div><div class="yr">2022</div></div>
       </div>
       <div class="rv">
@@ -517,6 +544,7 @@
     h2:"Projects &amp; awards", b2:"Detection, automated response and AI applied to security.",
     p1b:"🏆 1st place · Hackathon Cyber AI 2026", p1:"Cyber Threat Intelligence platform that uses AI to collect and analyse threats.",
     p2b:"🏆 1st place · ESPRIT Smart Campus 2026", p2:"AI solution for the campus, with biometric access control.",
+    p7b:"🏅 Top 6 NIDS · ESPRIT Bal des Projets 2026", p7:"Next-generation SOC &amp; Threat Intelligence ecosystem: active, autonomous defence that reacts to attacks instead of just logging them. I designed the Zero Trust infrastructure (micro-segmentation, triple OPNsense / pfSense firewall isolating WAN, DMZ and SOC) and integrated the SIEM / SOAR / CTI stack.",
     p3t:"Defensive SOC infrastructure", p3:"Wazuh + Suricata for real-time detection on endpoints and network.",
     p4t:"Response automation", p4:"pfSense / OPNsense firewalls driven by Shuffle SOAR playbooks.",
     p5t:"Network anomaly detection", p5:"LSTM model on traffic time series to spot abnormal behaviour.",
@@ -816,6 +844,33 @@
   if(reduce){ runFeed(true); typed.textContent = ROLES[lang][0]; }
   else { typed.textContent = ROLES[lang][0]; ci = ROLES[lang][0].length; setTimeout(typeLoop,1900); setTimeout(function(){runFeed(false)},900); setTimeout(function(){ scramble($('#name'),4); },150); }
   last=performance.now(); requestAnimationFrame(draw);
+})();
+</script>
+<figure class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galerie">
+  <button type="button" class="lb-x" aria-label="Fermer">✕</button>
+  <button type="button" class="lb-p" aria-label="Précédente">‹</button>
+  <img alt="">
+  <figcaption></figcaption>
+  <button type="button" class="lb-n" aria-label="Suivante">›</button>
+</figure>
+<script>
+(function(){
+  var lb=document.getElementById('lb'),im=lb.querySelector('img'),cap=lb.querySelector('figcaption'),list=[],i=0,last=null;
+  function show(){var t=list[i],en=document.documentElement.lang==='en',c=en?(t.dataset.en||t.alt):t.alt;
+    im.src=t.src;im.alt=c;cap.innerHTML='<b>'+(i+1)+' / '+list.length+'</b>'+c.replace(/</g,'&lt;');
+    lb.querySelector('.lb-p').style.display=lb.querySelector('.lb-n').style.display=list.length>1?'':'none';}
+  function open(g,k){list=[].slice.call(g.querySelectorAll('img'));i=k;show();lb.classList.add('on');document.body.style.overflow='hidden';lb.querySelector('.lb-x').focus();}
+  function close(){lb.classList.remove('on');document.body.style.overflow='';if(last)last.focus();}
+  function step(d){i=(i+d+list.length)%list.length;show();}
+  [].forEach.call(document.querySelectorAll('.shots'),function(g){
+    [].forEach.call(g.querySelectorAll('.shot'),function(b,k){b.addEventListener('click',function(e){e.stopPropagation();last=b;open(g,k);});});
+  });
+  lb.querySelector('.lb-x').onclick=close;
+  lb.querySelector('.lb-p').onclick=function(e){e.stopPropagation();step(-1)};
+  lb.querySelector('.lb-n').onclick=function(e){e.stopPropagation();step(1)};
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;
+    if(e.key==='Escape')close();else if(e.key==='ArrowLeft')step(-1);else if(e.key==='ArrowRight')step(1);});
 })();
 </script>
 </body>
