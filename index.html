@@ -239,6 +239,7 @@
   .card.wide{grid-column:1/-1}
   .shots{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:16px;position:relative;z-index:1}
   .card.wide .shots{grid-template-columns:repeat(6,1fr)}
+  .shots.one{grid-template-columns:1fr}
   .shot{display:block;padding:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#0a1018;cursor:zoom-in;aspect-ratio:16/10;transition:border-color .2s,transform .2s}
   .shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
   .shot:hover,.shot:focus-visible{border-color:var(--accent);outline:none}
@@ -383,6 +384,7 @@
         <span class="badge" data-i18n="p1b">🏆 1re place · Hackathon Cyber AI 2026</span>
         <h3>Godzilla CTI</h3>
         <p data-i18n="p1">Plateforme de Cyber Threat Intelligence qui exploite l'IA pour collecter et analyser la menace.</p>
+        <div class="shots one" data-gal="godzilla-cti"><button type="button" class="shot" aria-label="Agrandir : Écran d'authentification biométrique de Godzilla CTI"><img src="assets/projets/godzilla-cti-1.webp" alt="Écran d'authentification biométrique de Godzilla CTI (capteur d'empreinte Arduino)" data-en="Godzilla CTI biometric authentication screen (Arduino fingerprint sensor)" loading="lazy" decoding="async"></button></div>
       </div>
       <div class="card win rv"><i class="scan"></i>
         <span class="badge" data-i18n="p2b">🏆 1re place · ESPRIT Smart Campus 2026</span>
